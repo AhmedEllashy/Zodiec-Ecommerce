@@ -41,6 +41,8 @@
 		83A3A7E12A6B2E6000DE7266 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A3A7E02A6B2E6000DE7266 /* UserModel.swift */; };
 		83A3A7E32A6B2FBF00DE7266 /* AuthApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A3A7E22A6B2FBF00DE7266 /* AuthApis.swift */; };
 		83DF66C92A7153A000F584D5 /* ErrorStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF66C82A7153A000F584D5 /* ErrorStrings.swift */; };
+		83F2C9B22A77293200718CC9 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F2C9B12A77293200718CC9 /* CategoryModel.swift */; };
+		83F2C9B42A77293D00718CC9 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F2C9B32A77293D00718CC9 /* ProductModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,8 @@
 		83A3A7E02A6B2E6000DE7266 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		83A3A7E22A6B2FBF00DE7266 /* AuthApis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApis.swift; sourceTree = "<group>"; };
 		83DF66C82A7153A000F584D5 /* ErrorStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStrings.swift; sourceTree = "<group>"; };
+		83F2C9B12A77293200718CC9 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		83F2C9B32A77293D00718CC9 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				83A3A7E02A6B2E6000DE7266 /* UserModel.swift */,
+				83F2C9B12A77293200718CC9 /* CategoryModel.swift */,
+				83F2C9B32A77293D00718CC9 /* ProductModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,6 +302,7 @@
 				8301BFDE2A76DF1500FF34AA /* SegueStrings.swift in Sources */,
 				83A3A7DD2A6B2C0A00DE7266 /* FirebaseReferences.swift in Sources */,
 				83DF66C92A7153A000F584D5 /* ErrorStrings.swift in Sources */,
+				83F2C9B42A77293D00718CC9 /* ProductModel.swift in Sources */,
 				835AF3D22A685C3D00AB60CA /* LoginViewController.swift in Sources */,
 				8345CB222A69C77A00D2BD55 /* RegisterViewController.swift in Sources */,
 				8301BFE02A76EF3600FF34AA /* HomeViewController.swift in Sources */,
@@ -306,6 +313,7 @@
 				83A3A7E12A6B2E6000DE7266 /* UserModel.swift in Sources */,
 				835AF3D82A685C3D00AB60CA /* Zodiec.xcdatamodeld in Sources */,
 				83A3A7E32A6B2FBF00DE7266 /* AuthApis.swift in Sources */,
+				83F2C9B22A77293200718CC9 /* CategoryModel.swift in Sources */,
 				835AF3CE2A685C3D00AB60CA /* AppDelegate.swift in Sources */,
 				835AF3D02A685C3D00AB60CA /* SceneDelegate.swift in Sources */,
 			);
