@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>316216485628-terhtipksvmrq4fufk5siqnh8ucpd4dd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.316216485628-terhtipksvmrq4fufk5siqnh8ucpd4dd</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAZaiR3c7XvNfzhYtGwyNzrGFfaMniVwRo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>316216485628</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ellashy.Zodiec</string>
+	<key>PROJECT_ID</key>
+	<string>zodiec</string>
+	<key>STORAGE_BUCKET</key>
+	<string>zodiec.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:316216485628:ios:1db3b8ac790a0525db5979</string>
+</dict>
+</plist>
