@@ -9,4 +9,8 @@ import Foundation
 
 struct CellIdentifierStrings {
     static let categoryCellIdentfier = "CategoryCollectionViewCell"
+    static let productCellIdentfier = "ProductCollectionViewCell"
+    static let cartProductCellIdentifier = "CartProductCollectionViewCell"
+    static let addresseCellIdentifier = "AddressTableViewCell"
+
 }

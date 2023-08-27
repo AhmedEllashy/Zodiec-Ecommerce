@@ -9,7 +9,9 @@ import Foundation
 
 enum FirebaseCollections : String{
     case Users
-    
+    case Category
+    case Product
+    case Coupons
 }
 
 

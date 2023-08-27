@@ -63,7 +63,7 @@
             </constraints>
             <size key="customSize" width="94" height="85"/>
             <connections>
-                <outlet property="categoryImageView" destination="OSr-R4-8fn" id="0vu-iz-EtV"/>
+                <outlet property="CategoryImageView" destination="OSr-R4-8fn" id="0vu-iz-EtV"/>
                 <outlet property="categoryNameLabelView" destination="JX2-og-382" id="NVW-ce-Noz"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="49.21875"/>

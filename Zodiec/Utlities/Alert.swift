@@ -46,3 +46,17 @@ func loadingAlert(controller : UIViewController){
     alert.view.addSubview(loadingIndicator)
     controller.present(alert, animated: true, completion: nil)
 }
+func successAlert(message : String,controller : UIViewController){
+    let alert = UIAlertController(
+                title: "Success",
+                message: message,
+                preferredStyle: .alert
+            )
+
+            alert.addAction(UIAlertAction(
+                title: "OK",
+                style: .default
+            ))
+    controller.present(alert, animated: true)
+
+}

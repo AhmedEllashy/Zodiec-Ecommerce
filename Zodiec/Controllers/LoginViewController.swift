@@ -21,8 +21,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loginButton.isEnabled = false
-        emailTextFieldView.addBorder()
-        passwordTextFieldView.addBorder()
+        emailTextFieldView.RectangleBorderRadius()
+        passwordTextFieldView.RectangleBorderRadius()
         setupTextFields()
         let gesture = UIGestureRecognizer(target: self, action: #selector(GoogleButtonViewPressed))
         self.GoogleButtonView.addGestureRecognizer(gesture)

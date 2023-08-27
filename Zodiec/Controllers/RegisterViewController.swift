@@ -34,10 +34,10 @@ class RegisterViewController: UIViewController {
         SignUpButton.isEnabled = false
 
         setupTextFields()
-        UserNameTextFieldView.addBorder()
-        EmailTextFieldView.addBorder()
-        PasswordTextFieldView.addBorder()
-        ConfirmPasswordTextFieldView.addBorder()
+        UserNameTextFieldView.RectangleBorderRadius()
+        EmailTextFieldView.RectangleBorderRadius()
+        PasswordTextFieldView.RectangleBorderRadius()
+        ConfirmPasswordTextFieldView.RectangleBorderRadius()
     
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(GoogleButtonViewPressed))
         self.GoogleButtonView.addGestureRecognizer(gesture)

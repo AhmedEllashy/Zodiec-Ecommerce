@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="103" id="KGk-i7-Jjw" customClass="AddressTableViewCell" customModule="Zodiec" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="356" height="115"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="356" height="115"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ms-WN-4iX">
+                        <rect key="frame" x="6" y="6" width="40" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40 5B ,ELSheikh Zayed ,Giza Governrate , Egypt." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBM-zk-xFK">
+                        <rect key="frame" x="6" y="35" width="307" height="38"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="hUA-R5-i49"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dz-nA-PHe">
+                        <rect key="frame" x="321" y="42" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="9eO-A9-2ZS"/>
+                            <constraint firstAttribute="width" constant="35" id="dgk-fh-dT8"/>
+                        </constraints>
+                        <color key="tintColor" systemColor="labelColor"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="pencil.circle.fill" catalog="system">
+                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font">
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                            </preferredSymbolConfiguration>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="editAdressButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="OgW-ka-Apr"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="3ms-WN-4iX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="2np-04-2tx"/>
+                    <constraint firstItem="FBM-zk-xFK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="5k5-hQ-yjm"/>
+                    <constraint firstItem="7dz-nA-PHe" firstAttribute="leading" secondItem="FBM-zk-xFK" secondAttribute="trailing" constant="8" id="9Rc-ip-ERc"/>
+                    <constraint firstAttribute="trailing" secondItem="7dz-nA-PHe" secondAttribute="trailing" id="Di3-1z-F2h"/>
+                    <constraint firstAttribute="bottom" secondItem="7dz-nA-PHe" secondAttribute="bottom" constant="42" id="K4s-jI-E7M"/>
+                    <constraint firstItem="3ms-WN-4iX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="WRC-4n-Phz"/>
+                    <constraint firstItem="FBM-zk-xFK" firstAttribute="top" secondItem="3ms-WN-4iX" secondAttribute="bottom" constant="8" id="qqX-eq-daG"/>
+                    <constraint firstItem="7dz-nA-PHe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="42" id="uUw-ZV-ioH"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="AddressDetailsLabel" destination="FBM-zk-xFK" id="WDN-Ol-ong"/>
+                <outlet property="AddressTitleLabel" destination="3ms-WN-4iX" id="ZLa-XR-NpM"/>
+            </connections>
+            <point key="canvasLocation" x="163.768115942029" y="96.763392857142847"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

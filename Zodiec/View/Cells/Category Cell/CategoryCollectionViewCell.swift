@@ -9,16 +9,17 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     //MARK: - IBOutlets
-    @IBOutlet var categoryImageView : UIImageView!
-    @IBOutlet var categoryNameLabelView : UILabel!
+    @IBOutlet var CategoryImageView : UIImageView!
+    @IBOutlet var CategoryNameLabelView : UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        categoryImageView.layer.cornerRadius = 12.0
+        CategoryImageView.layer.cornerRadius = 0.5 * CategoryImageView.layer.bounds.size.width
     }
     
     //MARK: - Functions
-    func configure(_ data : Any?) {
+    func configure(_ data : CategoryModel) {
+        CategoryNameLabelView.text = data.name
         
     }
     
