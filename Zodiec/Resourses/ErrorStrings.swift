@@ -14,6 +14,7 @@ struct ErrorStrings {
     static var authError = "Authentication Error!"
     static var noCodeToApplyError = "There is no Coupon Code To Apply!"
     static var invalidCouponCodeError = "Invalid Coupon Code!"
+    static var fillAllFieldsError = "Please Fill All Fields!"
 
 
 

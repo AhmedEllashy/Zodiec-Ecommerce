@@ -23,6 +23,27 @@ class AddAddressViewController: UIViewController {
         MoreDetailsTextField.addShadow()
     }
     
+    @IBAction func saveAddressButtonPressed(_ sender : UIButton){
+        loadingAlert(controller: self)
+        guard let title = titleTextField.text else {return}
+        guard let street = StreetTextField.text else{return}
+        guard let district = DistrictTextField.text else{return}
+        guard let governrate = GovernrateTextField.text else{return}
+        guard let moreDetails = MoreDetailsTextField.text else{return}
+        if !title.isEmpty && !street.isEmpty && !district.isEmpty && !governrate.isEmpty &&  !moreDetails.isEmpty{
+        AppConstants.apiManager.addUserAddress(completion: { data, error in
+            self.presentedViewController?.dismiss(animated: true, completion: {
+                successAlert(message: AppStrings.success, controller: self)
+            })
+        }, address: AddressModel(id: "", title: title, street: street, district: district, governrate: governrate, moreDetails: moreDetails))
+        }else{
+            self.presentedViewController?.dismiss(animated: true, completion: {
+                handleErrorAlert(ErrorStrings.fillAllFieldsError, controller: self)
+
+            })
+        }
+    }
+    
 
 
 

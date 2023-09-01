@@ -85,7 +85,7 @@ class RegisterViewController: UIViewController {
             }else{
                 self.performSegue(withIdentifier: SegueStrings.registerGoToHomeSegue, sender: nil)
             }
-        },user: UserModel(uid: nil, userName: userName, email: email, mobileNumber: nil, password: password, imageUrl: nil, status: nil, token: nil, date: nil),viewController: self)
+        },user: UserModel(uid: nil, userName: userName, email: email, mobileNumber: nil, password: password, imageUrl: nil, status: nil, token: nil, address: [], date: nil),viewController: self)
         }
     }
     

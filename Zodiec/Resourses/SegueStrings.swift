@@ -11,5 +11,5 @@ import Foundation
 struct SegueStrings {
     static var registerGoToHomeSegue  = "registerGoToHome"
     static var loginGoToHomeSegue  = "loginGoToHome"
-
+    static var addressesGoToEditAddresseSegue = "addressesGoToEditAddresse"
 }

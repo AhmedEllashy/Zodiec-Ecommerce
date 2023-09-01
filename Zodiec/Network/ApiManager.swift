@@ -22,7 +22,7 @@ class ApiManager {
             "email" : user?.email ?? "",
             "password" : user?.password ?? "",
             "mobileNumber" : user?.mobileNumber ?? "",
-//            "address" : []
+            "address" : []
             
             ] as [String : Any]){err in
             if err != nil {
@@ -53,6 +53,55 @@ class ApiManager {
             }
         }
         
+    }
+    //MARK: - ADD User Address Method
+    func addUserAddress(completion  :@escaping (_ data : Any? ,_ error : String?) -> Void , address  : AddressModel){
+        guard let uid = auth.currentUser?.uid else{
+            completion(nil , ErrorStrings.authError)
+            return
+        }
+        let finalAddress : [String : String] = [
+            "id" : UUID().uuidString,
+            "title" : address.title,
+            "street" : address.street,
+            "district" : address.district,
+            "governrate" : address.governrate,
+            "moreDetails" : address.moreDetails
+           
+        ]
+        if address.id == "" {
+            address.id = finalAddress["id"]!
+        }
+        db.collection(FirebaseCollections.Users.rawValue).document(uid).setData([
+            "address" :[
+                address.id : finalAddress
+                ]
+            ], merge : true)
+        completion(AppStrings.success ,nil)
+    
+    }
+    //MARK: - GET User Address Method
+    func getUserAddress(completion  :@escaping (_ data : [AddressModel]? ,_ error : String?) -> Void ){
+        guard let uid = auth.currentUser?.uid else{
+            completion(nil , ErrorStrings.authError)
+            return
+        }
+        var addressArr : [AddressModel] = []
+        db.collection(FirebaseCollections.Users.rawValue)
+            .document(uid).getDocument(completion:  { document, error in
+                if let document = document {
+                    if  let cart  = document.data()!["address"] as? [String : Any]{
+                        for (_ , value) in cart {
+                            let address = AddressModel(_data: value as! NSDictionary)
+                            addressArr.append(address)
+                        }
+                        completion(addressArr,nil)
+                    }
+                }else{
+                    completion(nil , error?.localizedDescription)
+                }
+
+            })
     }
     //MARK: - ADD Category Method
     func addCategory(completion  :@escaping (_ data : CategoryModel? ,_ error : String?) -> Void , category  : CategoryModel ){

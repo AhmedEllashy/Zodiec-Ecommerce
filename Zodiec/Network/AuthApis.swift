@@ -20,7 +20,7 @@ class AuthApis {
         guard let password = user.password else{ return}
         auth.createUser(withEmail: email, password: password) { result, error in
             if result?.user != nil {
-                let finalUser = UserModel(uid: result?.user.uid, userName: user.userName, email: email, mobileNumber: nil, password: password, imageUrl: nil, status: nil, token: nil, date: nil)
+                let finalUser = UserModel(uid: result?.user.uid, userName: user.userName, email: email, mobileNumber: nil, password: password, imageUrl: nil, status: nil, token: nil, address: [], date: nil)
                 self.apiMananger.addUser(completion:{_,err  in
                     completion(finalUser, nil)
                 } , user: finalUser)
@@ -56,7 +56,7 @@ class AuthApis {
                 if error == nil {
                     self.apiMananger.addUser(completion: { data ,error  in
                         completion(data, nil)
-                    }, user:  UserModel(uid: result?.user.uid, userName: result?.user.displayName, email: result?.user.email, mobileNumber: nil, password: nil, imageUrl: nil, status: nil, token: nil, date: nil))
+                    }, user:  UserModel(uid: result?.user.uid, userName: result?.user.displayName, email: result?.user.email, mobileNumber: nil, password: nil, imageUrl: nil, status: nil, token: nil, address: [], date: nil))
                 }else{
                     completion(nil , error?.localizedDescription)
                 }
