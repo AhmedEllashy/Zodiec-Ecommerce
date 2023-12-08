@@ -62,7 +62,7 @@ class LoginViewController: UIViewController {
                 })
             }else{
                 self.presentedViewController?.dismiss(animated: true, completion: nil)
-                self.performSegue(withIdentifier: SegueStrings.loginGoToHomeSegue, sender: nil)
+                self.performSegue(withIdentifier: AppSegues.loginGoToHomeSegue, sender: nil)
             }
         }, email: email, password: password, controller: self)
     }

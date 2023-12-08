@@ -310,5 +310,80 @@ class ApiManager {
 
             })
     }
+    //MARK: - ADD To Order Method
+    func addOrder(completion  :@escaping (_ data : Any? ,_ error : String?) -> Void , products  : [CartModel] ,total : Double ){
+        guard let uid = auth.currentUser?.uid else{
+            completion(nil , ErrorStrings.authError)
+            return
+        }
+        var cartProducts : [Any]  = []
+        let orderId = UUID().uuidString
+        var ordersIds : [String] = []
+        for item in products {
+            let finalProduct : [String : Any] = [
+                "id" : item.product?.id ?? "",
+                "name" : item.product?.name ?? "",
+                "category" : item.product?.category ?? "",
+                "image": item.product?.image ?? "",
+                "price" : item.product?.price ?? "",
+                "quantity" : item.product?.quantity ?? 0,
+                "size" : item.product?.sizes ?? [],
+                "rate" : item.product?.rate ?? 0
+            ]
+            cartProducts.append(finalProduct)
+        }
+        
+        db.collection(FirebaseCollections.Order.rawValue).document(orderId).setData([
+            "id" : orderId,
+            "timestamp" : Timestamp().seconds,
+            "products" : cartProducts,
+            "status" : "Proccessing",
+            "total" : total
+            
+        ])
+        db.collection(FirebaseCollections.Users.rawValue).document(uid).getDocument { doc, err in
+            if let data = doc?.data() {
+                ordersIds = data["orders"] as! Array<String>
+                ordersIds.append(orderId)
+                self.db.collection(FirebaseCollections.Users.rawValue).document(uid).setData([
+                    "orders" :ordersIds,
+                    "cart" : [:]
+                    ], merge : true)
+            }
+        }
+      
+        completion(AppStrings.success ,nil)
     
+    }
+    //MARK: - GET Orders Method
+    func getOrders(completion : @escaping (_ data : [OrderModel]?,_ error : String?)-> Void ){
+        var orders : [OrderModel] = []
+        guard let uid = auth.currentUser?.uid else{
+            completion(nil , ErrorStrings.authError)
+            return
+        }
+        db.collection(FirebaseCollections.Users.rawValue).document(uid).getDocument { doc, error in
+            if let document = doc {
+                guard let ids = document["orders"] as? Array<String> else{
+                    completion(nil , ErrorStrings.noData)
+                    return
+                }
+                if ids.count > 0 {
+                    for id in ids {
+                        self.db.collection(FirebaseCollections.Order.rawValue).document(id).getDocument { doc, error in
+                            guard let data = doc?.data() else{
+                                completion(nil , ErrorStrings.noData)
+                                return
+                            }
+                            orders.append(OrderModel(_data: data as NSDictionary))
+                            completion(orders , nil)
+                         
+                        }
+                    }
+
+                    }
+            }
+       
+        }
+    }
 }

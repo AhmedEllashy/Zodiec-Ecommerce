@@ -12,5 +12,7 @@ struct CellIdentifierStrings {
     static let productCellIdentfier = "ProductCollectionViewCell"
     static let cartProductCellIdentifier = "CartProductCollectionViewCell"
     static let addresseCellIdentifier = "AddressTableViewCell"
+    static let orderCellIdentifier = "OrderTableViewCell"
+
 
 }

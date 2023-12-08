@@ -20,58 +20,66 @@ class CartProductCollectionViewCell: UICollectionViewCell {
     //MARK: - Property
     var counter : Int = 1
     var cart : CartModel?
-    var cartViewController : CartViewController?
+    var VC : UIViewController?
     
 
     
     //MARK: - IBActions
     @IBAction func PlusButtonPressed(_ sender : UIButton){
-        loadingAlert(controller: cartViewController!)
+        loadingAlert(controller: VC!)
         counter = (cart?.quantity)! + 1
         CounterLabel.text = "\(counter)"
         AppConstants.apiManager.addToCart(completion: { data, error in
             if error != nil{
-                self.cartViewController?.presentedViewController?.dismiss(animated: true, completion: {
-                    handleErrorAlert(error!, controller: self.cartViewController!)
+                self.VC?.presentedViewController?.dismiss(animated: true, completion: {
+                    handleErrorAlert(error!, controller: self.VC!)
                 })
             }else{
-                self.cartViewController?.presentedViewController?.dismiss(animated: true, completion: nil)
+                self.VC?.presentedViewController?.dismiss(animated: true, completion: nil)
             }
         }, quantity: counter, product: (cart?.product!)!)
-        self.cartViewController?.viewWillAppear(true)
+        self.VC?.viewWillAppear(true)
     }
     @IBAction func MinusButtonPressed(_ sender : UIButton){
-        counter = (cart?.quantity)!
-        if counter > 1 {
-        loadingAlert(controller: cartViewController!)
-        counter = (cart?.quantity)! - 1
-        CounterLabel.text = "\(counter)"
-        AppConstants.apiManager.addToCart(completion: { data, error in
+      if let cart = cart {
+         guard let product = cart.product else {return}
+         guard let quantity = cart.quantity else {return}
+         counter = quantity
+         if counter > 1 {
+         loadingAlert(controller: VC!)
+         counter = (cart.quantity)! - 1
+            print(cart.quantity!)
+             print(counter)
+         CounterLabel.text = "\(counter)"
+         AppConstants.apiManager.addToCart(completion: { data, error in
             if error != nil{
-                self.cartViewController?.presentedViewController?.dismiss(animated: true, completion: {
-                    handleErrorAlert(error!, controller: self.cartViewController!)
+                self.VC?.presentedViewController?.dismiss(animated: true, completion: {
+                    handleErrorAlert(error!, controller: self.VC!)
                 })
             }else{
-                self.cartViewController?.presentedViewController?.dismiss(animated: true, completion: nil)
+                self.VC?.presentedViewController?.dismiss(animated: true, completion: nil)
             }
-        }, quantity: counter, product: (cart?.product!)!)
-        self.cartViewController?.viewWillAppear(true)
+        }, quantity: counter, product: product)
+        self.VC?.viewWillAppear(true)
       }
+          print(counter)
     }
+}
     @IBAction func deleteFromCartButtonPressed(_ sender : UIButton){
-        loadingAlert(controller: cartViewController!)
+        loadingAlert(controller: VC!)
         AppConstants.apiManager.deleteProductFromCart(completion: { [self] data, error in
             if error != nil {
-                self.cartViewController?.presentedViewController?.dismiss(animated: true, completion: {
-                    handleErrorAlert(error!, controller: self.cartViewController!)
+                self.VC?.presentedViewController?.dismiss(animated: true, completion: {
+                    handleErrorAlert(error!, controller: self.VC!)
                 })
             }else{
-                self.cartViewController?.presentedViewController?.dismiss(animated: true, completion: {
-                    successAlert(message: AppStrings.productDeletedSuccesfully, controller: self.cartViewController!)
+                self.VC?.presentedViewController?.dismiss(animated: true, completion: {
+                    successAlert(message: AppStrings.productDeletedSuccesfully, controller: self.VC!)
                 })
             }
         }, id: cart?.product?.id)
-        cartViewController?.viewWillAppear(true)
+        
+        VC?.viewWillAppear(true)
     }
     //MARK: - Built-In-Medthods
     override func awakeFromNib() {
@@ -84,9 +92,9 @@ class CartProductCollectionViewCell: UICollectionViewCell {
 
     }
     //MARK: - Functions
-    func configure(_ data : CartModel , controller : CartViewController){
+    func configure(_ data : CartModel , controller : UIViewController){
         cart = data
-        cartViewController = controller
+        VC = controller
         ProductNameLabel.text = data.product?.name
         ProductPriceLabel.text = "$\(Double(data.product?.price! ?? "0.0") ?? 0.0)"
         CounterLabel.text = "\(data.quantity ?? 1)"

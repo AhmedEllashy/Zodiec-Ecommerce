@@ -8,21 +8,13 @@
 import UIKit
 
 class AddAddressViewController: UIViewController {
-
+    //MARK: - IBOutlets
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var StreetTextField: UITextField!
     @IBOutlet weak var DistrictTextField: UITextField!
     @IBOutlet weak var GovernrateTextField: UITextField!
     @IBOutlet weak var MoreDetailsTextField: UITextField!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        titleTextField.addShadow()
-        StreetTextField.addShadow()
-        DistrictTextField.addShadow()
-        GovernrateTextField.addShadow()
-        MoreDetailsTextField.addShadow()
-    }
-    
+    //MARK: - IBActions
     @IBAction func saveAddressButtonPressed(_ sender : UIButton){
         loadingAlert(controller: self)
         guard let title = titleTextField.text else {return}
@@ -43,8 +35,15 @@ class AddAddressViewController: UIViewController {
             })
         }
     }
-    
-
+    //MARK: - Built In Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        titleTextField.addShadow()
+        StreetTextField.addShadow()
+        DistrictTextField.addShadow()
+        GovernrateTextField.addShadow()
+        MoreDetailsTextField.addShadow()
+    }
 
 
 }

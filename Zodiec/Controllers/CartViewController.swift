@@ -24,6 +24,8 @@ class CartViewController: UIViewController {
     var cartProducts : [CartModel] = []
     var subtotal : Double = 0.0
     var discount : Double = 0.0
+    
+    //MARK: - Built-In Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         totalLabel.text = "0.0"
@@ -36,18 +38,18 @@ class CartViewController: UIViewController {
         CartProductCollectionView.dataSource = self
         CartProductCollectionView.register(CartProductCollectionViewCell.nib(), forCellWithReuseIdentifier: CellIdentifierStrings.cartProductCellIdentifier)
         CouponView.addShadow()
-
-
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getCartProducts()
         subtotal = 0.0
-        
-
-      
     }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let vc = segue.destination as? CheckoutViewController {
+//            vc.cartProducts = self.cartProducts
+//
+//        }
+//    }
     //MARK: - IBActions
     @IBAction func checkPaymentButtonPressed(_ sender : UIButton){
         
@@ -70,23 +72,36 @@ class CartViewController: UIViewController {
         }
         
     }
+    @IBAction func checkoutButtonPressed(_ sender: UIButton) {
+        
+        if  let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CheckoutViewController") as? CheckoutViewController {
+            vc.cartProducts = self.cartProducts
+            vc.discount = self.discount
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.delegate = self
+            self.present(vc, animated: true, completion: nil)
+        }
+      
+    }
     
     //MARK: - Functions
     func getCartProducts(){
+        loadingAlert(controller: self)
         AppConstants.apiManager.getCartProducts { data, error in
-            loadingAlert(controller: self)
+            dismissAlert()
             if error != nil {
-                self.presentedViewController?.dismiss(animated: true, completion: {
-                    handleErrorAlert(error!, controller: self)
-                })
+                handleErrorAlert(error!, controller: self)
+            
             }else{
                 self.cartProducts = data!
                 self.CartProductCollectionView.reloadData()
-                self.presentedViewController?.dismiss(animated: true, completion: nil)
             }
         }
+
     }
 
+  
 
 }
 //MARK: - Collection View DataSource
@@ -125,4 +140,11 @@ extension CartViewController : UICollectionViewDelegateFlowLayout {
         return 30.0
     }
     
+}
+
+
+extension CartViewController: CheckoutViewController_Delegate{
+    func handleDismiss() {
+        self.getCartProducts()
+    }
 }

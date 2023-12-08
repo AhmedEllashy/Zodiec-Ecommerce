@@ -12,6 +12,7 @@ enum FirebaseCollections : String{
     case Category
     case Product
     case Coupons
+    case Order
 }
 
 

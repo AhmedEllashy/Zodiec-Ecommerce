@@ -18,6 +18,7 @@ class UserModel {
     var status  :String?
     var token  : String?
     var address : [AddressModel]?
+    var orders : [String]?
     var date : Timestamp?
     
     init(_data : NSDictionary){
@@ -30,6 +31,7 @@ class UserModel {
         status = _data["status"] as? String
         token = _data["token"] as? String
         address = _data["address"] as? [AddressModel]
+        orders = _data["orders"] as? [String]
         date = _data["date"] as? Timestamp
     }
     init(uid : String? , userName : String? , email : String?,mobileNumber : String? , password : String? , imageUrl : String? , status : String? , token : String? ,address : [AddressModel]? ,date : Timestamp? ){

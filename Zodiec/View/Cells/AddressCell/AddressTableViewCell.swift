@@ -54,7 +54,7 @@ class AddressTableViewCell: UITableViewCell {
     
     @IBAction func editAdressButtonPressed(_ sender : UIButton) {
         controller?.index = index
-        controller?.performSegue(withIdentifier: SegueStrings.addressesGoToEditAddresseSegue, sender: self)
+        controller?.performSegue(withIdentifier: AppSegues.addressesGoToEditAddresseSegue, sender: self)
         
         
     }

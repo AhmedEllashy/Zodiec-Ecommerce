@@ -8,8 +8,12 @@
 import Foundation
 
 
-struct SegueStrings {
+struct AppSegues {
     static var registerGoToHomeSegue  = "registerGoToHome"
     static var loginGoToHomeSegue  = "loginGoToHome"
     static var addressesGoToEditAddresseSegue = "addressesGoToEditAddresse"
+    static var homeGoToProductDetailsSegue = "homeToProductDetails"
+    static var cartGoToCheckoutSegue = "cartToCheckout"
+    static var profileGoToOrdersSegue = "profileToOrders"
+
 }

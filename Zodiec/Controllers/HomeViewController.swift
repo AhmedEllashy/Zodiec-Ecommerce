@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     //MARK: - Property
     var categories : [CategoryModel] = []
     var products : [ProductModel] = []
-    
+    var productIndex : Int?
     //MARK: - Built-In-Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
         CategoryCollectionView.dataSource = self
         NewArrivalProductsCollectionView.dataSource = self
         NewArrivalProductsCollectionView.delegate = self
+        NewArrivalProductsCollectionView.contentInsetAdjustmentBehavior = .never
         CategoryCollectionView.register(CategoryCollectionViewCell.nib(), forCellWithReuseIdentifier: CellIdentifierStrings.categoryCellIdentfier)
         NewArrivalProductsCollectionView.register(ProductCollectionViewCell.nib(), forCellWithReuseIdentifier: CellIdentifierStrings.productCellIdentfier)
         //Call Data Functions
@@ -40,6 +41,12 @@ class HomeViewController: UIViewController {
         getAllCategories()
         getAllProducts()
 
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination =  segue.destination as? ProductDetailsViewController{
+            destination.product = products[productIndex ?? 0]
+        }
     }
     //MARK: - Functions
     func getAllCategories(){
@@ -90,7 +97,7 @@ extension HomeViewController : UICollectionViewDataSource {
         return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifierStrings.productCellIdentfier, for: indexPath) as! ProductCollectionViewCell
-            cell.configure(products[indexPath.row],controller: self)
+            cell.configure(products[indexPath.row],controller: self,_index: indexPath.row)
             return cell
         }
     

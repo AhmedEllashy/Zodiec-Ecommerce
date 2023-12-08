@@ -56,7 +56,7 @@ extension FavouriteViewController : UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifierStrings.productCellIdentfier, for: indexPath) as! ProductCollectionViewCell
-        cell.configure(wishlist[indexPath.row], controller: self)
+        cell.configure(wishlist[indexPath.row], controller: self, _index: indexPath.row)
         return cell
         
     }

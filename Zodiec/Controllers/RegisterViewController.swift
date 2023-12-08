@@ -83,7 +83,7 @@ class RegisterViewController: UIViewController {
                     handleErrorAlert(error!, controller: self)
                 })
             }else{
-                self.performSegue(withIdentifier: SegueStrings.registerGoToHomeSegue, sender: nil)
+                self.performSegue(withIdentifier: AppSegues.registerGoToHomeSegue, sender: nil)
             }
         },user: UserModel(uid: nil, userName: userName, email: email, mobileNumber: nil, password: password, imageUrl: nil, status: nil, token: nil, address: [], date: nil),viewController: self)
         }
