@@ -16,7 +16,6 @@ class ProductCollectionViewCell: UICollectionViewCell {
     var viewController : UIViewController?
     //MARK: - Property
     let apiManager : ApiManager = ApiManager()
-    var index : Int?
     //MARK: - Built In Methpds
     
     override func awakeFromNib() {
@@ -68,20 +67,22 @@ class ProductCollectionViewCell: UICollectionViewCell {
         }, product: product!)
     }
     
-    @IBAction func goToProductDetails(){
-        if let vc = viewController as? HomeViewController {
-            vc.productIndex = index
-        }
-    viewController?.performSegue(withIdentifier: AppSegues.homeGoToProductDetailsSegue, sender: viewController.self)
-        print("tabbed!")
-      }
+//    @IBAction func goToProductDetails(){
+//        if let vc = viewController as? HomeViewController {
+//            vc.productIndex = index
+//        }
+//    viewController?.performSegue(withIdentifier: AppSegues.homeGoToProductDetailsSegue, sender: viewController.self)
+//        print("tabbed!")
+//
+//
+//      }
     
     //MARK: - Functions
     func configure(_ data : ProductModel , controller : UIViewController ,_index : Int){
         ProductNameLabel.text = data.name
         ProductPriceLabel.text = "$\(Double(data.price!) ?? 0.0)"
         product = data
-        self.index = _index
+//        self.index = _index
         self.viewController = controller
     }
 

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OrderProductCollectionViewCell" id="gTV-IL-0wX" customClass="OrderProductCollectionViewCell" customModule="Zodiec" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="332" height="86"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="332" height="86"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="RedShoesBanner" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-gQ-pup">
+                        <rect key="frame" x="0.0" y="0.0" width="129" height="86"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="90" id="spm-K3-nAm"/>
+                            <constraint firstAttribute="width" constant="129" id="utS-dX-nyy"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fjo-S2-gY3">
+                        <rect key="frame" x="129" y="0.0" width="203" height="86"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red Shoes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Xc-5V-GFF">
+                                <rect key="frame" x="5" y="8" width="86" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jb4-P8-K9V">
+                                <rect key="frame" x="135" y="52" width="54" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$289.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oph-9z-fyc">
+                                <rect key="frame" x="5" y="54" width="63" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oph-9z-fyc" firstAttribute="leading" secondItem="fjo-S2-gY3" secondAttribute="leading" constant="5" id="2hf-hj-eU1"/>
+                            <constraint firstItem="4Xc-5V-GFF" firstAttribute="top" secondItem="fjo-S2-gY3" secondAttribute="top" constant="8" id="DuX-RD-pmn"/>
+                            <constraint firstAttribute="height" constant="80" id="RYu-rF-d3C"/>
+                            <constraint firstAttribute="bottom" secondItem="oph-9z-fyc" secondAttribute="bottom" constant="8" id="UPk-X1-f2v"/>
+                            <constraint firstAttribute="bottom" secondItem="Jb4-P8-K9V" secondAttribute="bottom" constant="8" id="cpm-jV-GnT"/>
+                            <constraint firstItem="4Xc-5V-GFF" firstAttribute="leading" secondItem="fjo-S2-gY3" secondAttribute="leading" constant="5" id="i0E-CU-bu1"/>
+                            <constraint firstAttribute="trailing" secondItem="Jb4-P8-K9V" secondAttribute="trailing" constant="14" id="pGl-Y3-iI5"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="eTU-gQ-pup" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5pJ-xV-njn"/>
+                <constraint firstAttribute="bottom" secondItem="fjo-S2-gY3" secondAttribute="bottom" id="AmD-cM-VZA"/>
+                <constraint firstAttribute="bottom" secondItem="eTU-gQ-pup" secondAttribute="bottom" id="Pwy-kK-EJi"/>
+                <constraint firstAttribute="trailing" secondItem="fjo-S2-gY3" secondAttribute="trailing" id="UES-Ea-rnM"/>
+                <constraint firstItem="eTU-gQ-pup" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cMO-Sg-9j6"/>
+                <constraint firstItem="fjo-S2-gY3" firstAttribute="leading" secondItem="eTU-gQ-pup" secondAttribute="trailing" id="iEb-gy-tt5"/>
+                <constraint firstItem="fjo-S2-gY3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="xZZ-Yr-vv0"/>
+            </constraints>
+            <size key="customSize" width="332" height="86"/>
+            <connections>
+                <outlet property="ProductImageView" destination="eTU-gQ-pup" id="Atb-eb-xlG"/>
+                <outlet property="ProductPriceLabel" destination="oph-9z-fyc" id="wAI-PA-UpU"/>
+                <outlet property="ProductQuantityLabel" destination="Jb4-P8-K9V" id="f1E-P2-14z"/>
+            </connections>
+            <point key="canvasLocation" x="69.565217391304358" y="46.875"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="RedShoesBanner" width="1000" height="667"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

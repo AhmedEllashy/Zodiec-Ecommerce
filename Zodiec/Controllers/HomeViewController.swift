@@ -7,6 +7,9 @@
 
 import UIKit
 
+protocol HomeViewProtocol : Protocol{
+    func getSelectedProductIndex()
+}
 class HomeViewController: UIViewController {
     //MARK: - IBOulets
     @IBOutlet var QRCodeView : UIView!
@@ -23,6 +26,28 @@ class HomeViewController: UIViewController {
     //MARK: - Built-In-Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+
+      
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getAllCategories()
+        getAllProducts()
+
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let destination =  segue.destination as? ProductDetailsViewController{
+//            destination.product = products[productIndex ?? 0]
+//        }
+//    }
+
+
+}
+//MARK: - Functions
+extension HomeViewController {
+    func setup(){
         QRCodeView.circluteView()
         SearchView.circluteView()
         redShoesImageView.layer.cornerRadius = 15.0
@@ -33,22 +58,16 @@ class HomeViewController: UIViewController {
         NewArrivalProductsCollectionView.contentInsetAdjustmentBehavior = .never
         CategoryCollectionView.register(CategoryCollectionViewCell.nib(), forCellWithReuseIdentifier: CellIdentifierStrings.categoryCellIdentfier)
         NewArrivalProductsCollectionView.register(ProductCollectionViewCell.nib(), forCellWithReuseIdentifier: CellIdentifierStrings.productCellIdentfier)
-        //Call Data Functions
-      
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        getAllCategories()
-        getAllProducts()
 
+        let searchGesture = UITapGestureRecognizer(target: self, action: #selector(self.searchGesturePressed(_:)))
+        SearchView.addGestureRecognizer(searchGesture)        //Call Data Functions
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination =  segue.destination as? ProductDetailsViewController{
-            destination.product = products[productIndex ?? 0]
-        }
+    @objc func searchGesturePressed(_ sender : UITapGestureRecognizer){
+        let vc  = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
-    //MARK: - Functions
     func getAllCategories(){
         AppConstants.apiManager.getCategories { data, error in
             if let safeData = data {
@@ -73,10 +92,7 @@ class HomeViewController: UIViewController {
           
         }
     }
-
 }
-
-    
 
 //MARK: - Collection View DataSource Methods
 extension HomeViewController : UICollectionViewDataSource {
@@ -101,6 +117,11 @@ extension HomeViewController : UICollectionViewDataSource {
             return cell
         }
     
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = UIStoryboard(name :"Main",bundle: nil).instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
+        vc.product = products[indexPath.row]
+        self.present(vc, animated: true, completion: nil)
     }
     
     

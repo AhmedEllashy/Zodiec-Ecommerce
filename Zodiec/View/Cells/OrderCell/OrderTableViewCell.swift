@@ -26,7 +26,7 @@ class OrderTableViewCell: UITableViewCell {
     func config(_ order : OrderModel){
         OrderIdLabel.text = "Order001"
         OrderStatusLabel.text = order.status
-        OrderDateLabel.text = "\(order.total ?? 0.0)"
+        OrderDateLabel.text = "$\(order.total ?? 0.0)"
     }
     //MARK: - Cell Config
     static func nib() -> UINib{

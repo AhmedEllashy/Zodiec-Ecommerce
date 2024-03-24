@@ -311,7 +311,7 @@ class ApiManager {
             })
     }
     //MARK: - ADD To Order Method
-    func addOrder(completion  :@escaping (_ data : Any? ,_ error : String?) -> Void , products  : [CartModel] ,total : Double ){
+    func addOrder(completion  :@escaping (_ data : Any? ,_ error : String?) -> Void , products  : [CartModel] ,total : Double ,subtotal : Double, discount : Double){
         guard let uid = auth.currentUser?.uid else{
             completion(nil , ErrorStrings.authError)
             return
@@ -330,7 +330,11 @@ class ApiManager {
                 "size" : item.product?.sizes ?? [],
                 "rate" : item.product?.rate ?? 0
             ]
-            cartProducts.append(finalProduct)
+            let cartProductItem : [String : Any] = [
+                "product" : finalProduct,
+                "quantity" : item.quantity ?? 0
+            ]
+            cartProducts.append(cartProductItem)
         }
         
         db.collection(FirebaseCollections.Order.rawValue).document(orderId).setData([
@@ -338,7 +342,9 @@ class ApiManager {
             "timestamp" : Timestamp().seconds,
             "products" : cartProducts,
             "status" : "Proccessing",
-            "total" : total
+            "total" : total,
+            "subtotal" : subtotal,
+            "discount" : discount
             
         ])
         db.collection(FirebaseCollections.Users.rawValue).document(uid).getDocument { doc, err in

@@ -41,7 +41,9 @@ extension OrderViewController {
             if let error = error {
                 handleErrorAlert(error, controller: self)
             }else{
-            self.orders = allOrders ?? []
+             self.orders = allOrders ?? []
+                dump(allOrders)
+
             self.orderTableView.reloadData()
             }
         }
@@ -50,13 +52,9 @@ extension OrderViewController {
 //MARK: - Table View Delegate Methods
 extension OrderViewController : UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    func numberOfSections(in tableView: UITableView) -> Int {
         return orders.count
     }
-    
-
+  
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
          return 10
      }
@@ -72,6 +70,19 @@ extension OrderViewController  : UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = orderTableView.dequeueReusableCell(withIdentifier: CellIdentifierStrings.orderCellIdentifier, for: indexPath) as! OrderTableViewCell
         cell.config(orders[indexPath.row])
+        cell.addShadow()
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = UIStoryboard(name: "Main",bundle: nil).instantiateViewController(withIdentifier: "OrderDetailsViewController") as? OrderDetailsViewController {
+            let order : OrderModel = orders[indexPath.row]
+            vc.products = order.products ?? []
+            vc.total = order.total ?? 0.0
+            vc.subTotal = order.subtotal ?? 0.0
+            vc.discount = order.discount ?? 0.0
+            vc.modalTransitionStyle = .coverVertical
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
     }
 }

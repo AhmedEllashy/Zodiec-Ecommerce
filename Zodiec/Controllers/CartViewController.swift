@@ -110,7 +110,6 @@ extension CartViewController : UICollectionViewDataSource {
         return cartProducts.count
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = CartProductCollectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifierStrings.cartProductCellIdentifier, for: indexPath) as! CartProductCollectionViewCell
         subtotal += (Double((cartProducts[indexPath.row].product?.price)!)!) * Double((cartProducts[indexPath.row].quantity)!)

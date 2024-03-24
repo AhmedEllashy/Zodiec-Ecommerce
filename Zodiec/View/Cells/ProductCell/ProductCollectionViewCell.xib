@@ -70,29 +70,18 @@
                             <action selector="AddToWishListButtonPressed:" destination="gTV-IL-0wX" eventType="touchDown" id="pe7-sC-Y0q"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxl-dP-4V7">
-                        <rect key="frame" x="0.0" y="0.0" width="152" height="206"/>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain"/>
-                        <connections>
-                            <action selector="goToProductDetails" destination="gTV-IL-0wX" eventType="touchUpInside" id="w6k-Jd-Rlw"/>
-                        </connections>
-                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="yxl-dP-4V7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="33h-p6-bG3"/>
                 <constraint firstItem="9rQ-BS-OYC" firstAttribute="top" secondItem="cSL-dP-y1e" secondAttribute="bottom" constant="5" id="44D-Ro-pEW"/>
                 <constraint firstItem="cSL-dP-y1e" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="55g-iW-LPk"/>
                 <constraint firstItem="TPm-F6-nXq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="86Z-oc-BkS"/>
                 <constraint firstItem="cSL-dP-y1e" firstAttribute="top" secondItem="TPm-F6-nXq" secondAttribute="bottom" constant="8" id="9j1-36-fsE"/>
                 <constraint firstItem="61l-nD-6ut" firstAttribute="top" secondItem="cSL-dP-y1e" secondAttribute="bottom" constant="10" id="AOO-fX-i0F"/>
-                <constraint firstAttribute="bottom" secondItem="yxl-dP-4V7" secondAttribute="bottom" id="GIe-Qg-EuU"/>
                 <constraint firstAttribute="trailing" secondItem="cSL-dP-y1e" secondAttribute="trailing" id="J2d-J9-lSr"/>
                 <constraint firstItem="9rQ-BS-OYC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="OKu-xF-HeH"/>
-                <constraint firstAttribute="trailing" secondItem="yxl-dP-4V7" secondAttribute="trailing" id="aZ3-ve-qkY"/>
                 <constraint firstAttribute="trailing" secondItem="61l-nD-6ut" secondAttribute="trailing" constant="4" id="b5h-wv-HWW"/>
                 <constraint firstAttribute="trailing" secondItem="9rQ-BS-OYC" secondAttribute="trailing" id="kOW-DM-o5X"/>
                 <constraint firstAttribute="trailing" secondItem="gQu-bv-Upb" secondAttribute="trailing" id="pMH-NO-bfN"/>
@@ -100,7 +89,6 @@
                 <constraint firstAttribute="bottom" secondItem="61l-nD-6ut" secondAttribute="bottom" constant="5" id="wZc-Ru-NOZ"/>
                 <constraint firstItem="gQu-bv-Upb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="6" id="x1j-FL-zNw"/>
                 <constraint firstAttribute="trailing" secondItem="TPm-F6-nXq" secondAttribute="trailing" id="xhi-IQ-n3h"/>
-                <constraint firstItem="yxl-dP-4V7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yTB-EE-dI0"/>
             </constraints>
             <size key="customSize" width="89" height="151"/>
             <connections>
